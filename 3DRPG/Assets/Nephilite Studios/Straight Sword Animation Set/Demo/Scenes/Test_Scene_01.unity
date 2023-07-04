@@ -92616,6 +92616,7 @@ GameObject:
   - component: {fileID: 4530065839066624698}
   - component: {fileID: 4530065839066624697}
   - component: {fileID: 4530065839066624700}
+  - component: {fileID: 4530065839066624701}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -92713,12 +92714,22 @@ MonoBehaviour:
   leftandRightLookAngle: 0
   upAndDownLookAngle: 0
   attackLastPerformed: 
-  lightAttackInput: 0
-  heavyAttackInput: 0
   chargeAttackInput: 0
   weaponFX: {fileID: 4071827205694796169}
   weaponChargeFX: {fileID: 993813815}
   offHandWeapon: {fileID: 1215017575}
+--- !u!114 &4530065839066624701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530065839066624696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fca67c5eb92bc49adae7396729181b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4699227023637039774
 Transform:
   m_ObjectHideFlags: 0
