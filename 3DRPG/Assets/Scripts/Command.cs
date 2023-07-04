@@ -22,7 +22,6 @@ public class HandleBackStep : Command
         player.HandleBackStep();
     }
 }
-
 public class HandleRoll : Command
 {
     public override void execute(StraightSwordControllerDemoScript player)
@@ -30,12 +29,18 @@ public class HandleRoll : Command
         player.HandleRoll();
     }
 }
-
 public class HandleSprint : Command
 {
     public override void execute(StraightSwordControllerDemoScript player)
     {
         player.HandleSprint();
+    }
+}
+public class HandleSprintReset : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.HandleSprintReset();
     }
 }
 public class HandleWalkOrRun : Command
@@ -85,5 +90,75 @@ public class HandleChargeAttack : Command
     public override void execute(StraightSwordControllerDemoScript player)
     {
         player.HandleChargeAttack();
+    }
+}
+public class HandleLightAttackCombo : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.HandleLightAttackCombo();
+    }
+}
+public class HandleHeavyAttackCombo : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.HandleHeavyAttackCombo();
+    }
+}
+public class HandleChargeAttackCombo : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.HandleChargeAttackCombo();
+    }
+}
+public class HandleBackStepAttack : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.HandleBackStepAttack();
+    }
+}
+public class HandleUpMove : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetVerticalMovement(1);
+    }
+}
+public class HandleDownMove : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetVerticalMovement(-1);
+    }
+}
+public class HandleVerticalReset : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetVerticalMovement(0);
+    }
+}
+public class HandleLeftMove : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetHorizontalMovement(-1);
+    }
+}
+public class HandleRightMove : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetHorizontalMovement(1);
+    }
+}
+public class HandleHorizontalReset : Command
+{
+    public override void execute(StraightSwordControllerDemoScript player)
+    {
+        player.SetHorizontalMovement(0);
     }
 }

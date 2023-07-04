@@ -55,7 +55,6 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
 
     //ATTACK VARIABLES
     [SerializeField] string attackLastPerformed;
-    [SerializeField] bool chargeAttackInput;
 
     [Header("Weapon")]
     public ParticleSystem weaponFX;
@@ -207,10 +206,10 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
 
     private void HandleInputs()
     {
-        HandleLightAttackCombo();
-        HandleHeavyAttackCombo();
-        HandleChargeAttackCombo();
-        HandleBackStepAttack();
+        //HandleLightAttackCombo();
+        //HandleHeavyAttackCombo();
+        //HandleChargeAttackCombo();
+        //HandleBackStepAttack();
 
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
@@ -227,33 +226,42 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
         //HandleHeavyAttack();
         //HandleChargeAttack();
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            verticalMovement = 1;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            verticalMovement = -1;
-        }
-        else
-        {
-            verticalMovement = 0;
-        }
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    verticalMovement = 1;
+        //}
+        //else if (Input.GetKey(KeyCode.S))
+        //{
+        //    verticalMovement = -1;
+        //}
+        //else
+        //{
+        //    verticalMovement = 0;
+        //}
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            horizontalMovement = 1;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            horizontalMovement = -1;
-        }
-        else
-        {
-            horizontalMovement = 0;
-        }
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    horizontalMovement = 1;
+        //}
+        //else if (Input.GetKey(KeyCode.A))
+        //{
+        //    horizontalMovement = -1;
+        //}
+        //else
+        //{
+        //    horizontalMovement = 0;
+        //}
 
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalMovement) + Mathf.Abs(verticalMovement));
+    }
+
+    public void SetVerticalMovement(float value)
+    {
+        verticalMovement = value;
+    }
+    public void SetHorizontalMovement(float value)
+    {
+        horizontalMovement = value;
     }
 
     private void HandleAllPlayerLocomotion()
@@ -313,50 +321,46 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
     }
 
 
-    private void HandleLightAttackCombo()
+    public void HandleLightAttackCombo()
     {
         if (isPerformingAction)
         {
             if (attackLastPerformed == oh_Light_Attack_01)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    PlayActionAnimation("OH_Light_Attack_02", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = oh_Light_Attack_02;
-                    return;
-                }
+
+                PlayActionAnimation("OH_Light_Attack_02", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = oh_Light_Attack_02;
+                return;
+
             }
             else if (attackLastPerformed == oh_Light_Attack_02)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    PlayActionAnimation("OH_Light_Attack_01", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = oh_Light_Attack_01;
-                }
+
+                PlayActionAnimation("OH_Light_Attack_01", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = oh_Light_Attack_01;
+
             }
             else if (attackLastPerformed == th_Light_Attack_01)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    PlayActionAnimation("TH_Light_Attack_02", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = th_Light_Attack_02;
-                }
+
+                PlayActionAnimation("TH_Light_Attack_02", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = th_Light_Attack_02;
+
             }
             else if (attackLastPerformed == th_Light_Attack_02)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    PlayActionAnimation("TH_Light_Attack_01", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = th_Light_Attack_01;
-                }
+
+                PlayActionAnimation("TH_Light_Attack_01", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = th_Light_Attack_01;
+
             }
         }
     }
@@ -401,49 +405,40 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
     }
 
 
-    private void HandleHeavyAttackCombo()
+    public void HandleHeavyAttackCombo()
     {
         if (isPerformingAction)
         {
             if (attackLastPerformed == oh_Heavy_Attack_01)
             {
-                if (Input.GetKeyUp(KeyCode.Q))
-                {
-                    PlayActionAnimation("OH_Heavy_Attack_02", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = oh_Heavy_Attack_02;
-                }
+
+                PlayActionAnimation("OH_Heavy_Attack_02", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = oh_Heavy_Attack_02;
             }
             else if (attackLastPerformed == oh_Heavy_Attack_02)
             {
-                if (Input.GetKeyUp(KeyCode.Q))
-                {
-                    PlayActionAnimation("OH_Heavy_Attack_01", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = oh_Heavy_Attack_01;
-                }
+                PlayActionAnimation("OH_Heavy_Attack_01", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = oh_Heavy_Attack_01;
             }
             else if (attackLastPerformed == th_Heavy_Attack_01)
             {
-                if (Input.GetKeyUp(KeyCode.Q))
-                {
-                    PlayActionAnimation("TH_Heavy_Attack_02", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = th_Heavy_Attack_02;
-                }
+                PlayActionAnimation("TH_Heavy_Attack_02", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = th_Heavy_Attack_02;
+
             }
             else if (attackLastPerformed == th_Heavy_Attack_02)
             {
-                if (Input.GetKeyUp(KeyCode.Q))
-                {
-                    PlayActionAnimation("TH_Heavy_Attack_01", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                    attackLastPerformed = th_Heavy_Attack_01;
-                }
+                PlayActionAnimation("TH_Heavy_Attack_01", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+                attackLastPerformed = th_Heavy_Attack_01;
+
             }
         }
     }
@@ -471,62 +466,49 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
     }
 
 
-    private void HandleChargeAttackCombo()
+    public void HandleChargeAttackCombo()
     {
         if (isPerformingAction)
         {
-            if (Input.GetKeyUp(KeyCode.C))
+            if (attackLastPerformed == oh_Charge_Attack_01)
             {
-                chargeAttackInput = true;
+
+                PlayActionAnimation("OH_Charge_Attack_02_Wind_Up", true);
+                weaponChargeFX.Stop();
+                weaponChargeFX.Play();
+                attackLastPerformed = oh_Charge_Attack_02;
+
             }
-
-            if (chargeAttackInput)
+            else if (attackLastPerformed == oh_Charge_Attack_02)
             {
-                chargeAttackInput = false;
 
-                if (attackLastPerformed == oh_Charge_Attack_01)
-                {
-                    if (Input.GetKeyUp(KeyCode.C))
-                    {
-                        PlayActionAnimation("OH_Charge_Attack_02_Wind_Up", true);
-                        weaponChargeFX.Stop();
-                        weaponChargeFX.Play();
-                        attackLastPerformed = oh_Charge_Attack_02;
-                    }
-                }
-                else if (attackLastPerformed == oh_Charge_Attack_02)
-                {
-                    if (Input.GetKeyUp(KeyCode.C))
-                    {
-                        PlayActionAnimation("OH_Charge_Attack_01_Wind_Up", true);
-                        weaponChargeFX.Stop();
-                        weaponChargeFX.Play();
-                        attackLastPerformed = oh_Charge_Attack_01;
-                    }
-                }
-                else if (attackLastPerformed == th_Charge_Attack_01)
-                {
-                    if (Input.GetKeyUp(KeyCode.C))
-                    {
-                        PlayActionAnimation("TH_Charge_Attack_02_Wind_Up", true);
-                        weaponChargeFX.Stop();
-                        weaponChargeFX.Play();
-                        attackLastPerformed = th_Charge_Attack_02;
-                    }
-                }
-                else if (attackLastPerformed == th_Charge_Attack_02)
-                {
-                    if (Input.GetKeyUp(KeyCode.C))
-                    {
-                        PlayActionAnimation("TH_Charge_Attack_01_Wind_Up", true);
-                        weaponChargeFX.Stop();
-                        weaponChargeFX.Play();
-                        attackLastPerformed = th_Charge_Attack_01;
-                    }
-                }
+                PlayActionAnimation("OH_Charge_Attack_01_Wind_Up", true);
+                weaponChargeFX.Stop();
+                weaponChargeFX.Play();
+                attackLastPerformed = oh_Charge_Attack_01;
+
+            }
+            else if (attackLastPerformed == th_Charge_Attack_01)
+            {
+
+                PlayActionAnimation("TH_Charge_Attack_02_Wind_Up", true);
+                weaponChargeFX.Stop();
+                weaponChargeFX.Play();
+                attackLastPerformed = th_Charge_Attack_02;
+
+            }
+            else if (attackLastPerformed == th_Charge_Attack_02)
+            {
+
+                PlayActionAnimation("TH_Charge_Attack_01_Wind_Up", true);
+                weaponChargeFX.Stop();
+                weaponChargeFX.Play();
+                attackLastPerformed = th_Charge_Attack_01;
+
             }
         }
     }
+
 
     public void HandleBackStep()
     {
@@ -534,42 +516,40 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
             return;
 
 
-            attackLastPerformed = null;
+        attackLastPerformed = null;
 
-            animator.SetBool("isPerformingBackStep", true);
+        animator.SetBool("isPerformingBackStep", true);
 
-            if (isTwoHandingWeapon)
-            {
-                PlayActionAnimation("TH_Backstep", true);
-            }
-            else
-            {
-                PlayActionAnimation("OH_Backstep", true);
-            }
-        
+        if (isTwoHandingWeapon)
+        {
+            PlayActionAnimation("TH_Backstep", true);
+        }
+        else
+        {
+            PlayActionAnimation("OH_Backstep", true);
+        }
+
     }
 
-    private void HandleBackStepAttack()
+    public void HandleBackStepAttack()
     {
         if (isPerformingBackStep)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                animator.SetBool("isPerformingBackStep", false);
+            animator.SetBool("isPerformingBackStep", false);
 
-                if (isTwoHandingWeapon)
-                {
-                    PlayActionAnimation("TH_Backstep_Attack", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                }
-                else
-                {
-                    PlayActionAnimation("OH_Backstep_Attack", true);
-                    weaponFX.Stop();
-                    weaponFX.Play();
-                }
+            if (isTwoHandingWeapon)
+            {
+                PlayActionAnimation("TH_Backstep_Attack", true);
+                weaponFX.Stop();
+                weaponFX.Play();
             }
+            else
+            {
+                PlayActionAnimation("OH_Backstep_Attack", true);
+                weaponFX.Stop();
+                weaponFX.Play();
+            }
+
         }
     }
 
@@ -596,8 +576,12 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
         }
         else
         {
-            isSprinting = false;
+            HandleSprintReset();
         }
+    }
+    public void HandleSprintReset()
+    {
+        isSprinting = false;
     }
 
     public void HandleBlockToggle()
@@ -643,17 +627,17 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
             return;
 
 
-            if (isWalking || !isRunning)
-            {
-                isWalking = false;
-                isRunning = true;
-            }
-            else if (!isWalking || isRunning)
-            {
-                isWalking = true;
-                isRunning = false;
-            }
-        
+        if (isWalking || !isRunning)
+        {
+            isWalking = false;
+            isRunning = true;
+        }
+        else if (!isWalking || isRunning)
+        {
+            isWalking = true;
+            isRunning = false;
+        }
+
     }
 
     private void HandlePlayerRotation()
