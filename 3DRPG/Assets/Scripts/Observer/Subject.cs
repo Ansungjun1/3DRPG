@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Subject : MonoBehaviour
 {
-    List<Observer> observers = new List<Observer>();
-    Observer questManager = new QuestManager();
-    private void Start()
+    public Observer[] observers;
+
+    protected void Start()
     {
-        observers.Add(questManager);
+        observers = FindObjectOfType<SubjectManager>().GetObservers();
     }
 
     protected void notify(QuestEvent questEvent)
     {
-        for(int i = 0; i < observers.Count; i++)
+        for(int i = 0; i < observers.Length; i++)
         {
             observers[i].onNotify(questEvent);
         }

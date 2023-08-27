@@ -9,6 +9,7 @@ public class ResetAnimatorBool : StateMachineBehaviour
     {
         animator.SetBool("isPerformingAction", false);
         animator.SetBool("isPerformingBackStep", false);
+        animator.GetComponent<StraightSwordControllerDemoScript>().myWeapon.GetComponent<Sword>().SwordCollider(false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum QuestEvent { None, Dead_Monster }
+
 public class QuestManager : Observer
 {
+    public List<QuestData> questList = new List<QuestData>();
+
     public override void onNotify(QuestEvent questEvent)
     {
         switch(questEvent)
@@ -12,7 +14,7 @@ public class QuestManager : Observer
             case QuestEvent.Dead_Monster:
                 {
                     Debug.Log("실행");
-                    //퀘스트 1 증가.
+                    FindQuestList(questEvent);
                     break;
                 }
             default:
@@ -21,4 +23,23 @@ public class QuestManager : Observer
                 }
         }
     }
+
+    void FindQuestList(QuestEvent questEvent)
+    {
+        for(int i = 0; i < questList.Count; i++)
+        {
+            questList[i].CheckCompleteQuest(questEvent);
+        }
+    }
+
+    public void AddQuest(QuestData questData)
+    {
+        questData.SetQuest();
+        questList.Add(questData);
+    }
+    public void RemoveQuest(QuestData questData)
+    {
+        questList.Remove(questData);
+    }
+    
 }
