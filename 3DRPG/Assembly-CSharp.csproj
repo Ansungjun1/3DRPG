@@ -85,6 +85,7 @@
     <Compile Include="Assets\Nephilite Studios\Straight Sword Animation Set\Demo\Scripts\ResetAnimatorBool.cs" />
     <Compile Include="Assets\Scripts\Enemy\ResetEnemyAnimatorBool.cs" />
     <Compile Include="Assets\Scripts\NPC\NPCStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Cinema\ChangeScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -842,6 +843,12 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
