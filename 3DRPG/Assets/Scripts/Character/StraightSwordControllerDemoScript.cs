@@ -83,6 +83,8 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
 
     PlayerStateMachine playerStateMachine;
 
+    public Canvas npcKey;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -785,11 +787,13 @@ public class StraightSwordControllerDemoScript : MonoBehaviour
 
     public void OnNPC(QuestNPC npc)
     {
+        npcKey.enabled = true;
         NPC = npc;
     }
 
     public void OffNPC()
     {
+        npcKey.enabled = false;
         NPC = null;
     }
 

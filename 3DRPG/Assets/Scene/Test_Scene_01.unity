@@ -48541,6 +48541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questList:
   - {fileID: 11400000, guid: f81146ac64013944d903aae823daa8ef, type: 2}
+  Contexts: {fileID: 0}
+  quest_Icon: {fileID: 0}
   npcNullContexts:
   - "\uC548\uB155"
   - "\uB10C \uB204\uAD6C\uB2C8."
@@ -58896,6 +58898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observers: []
+  isOn: 0
+  hp_Img: {fileID: 0}
+  myType: 0
 --- !u!54 &1405433614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65697,6 +65702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observers: []
+  isOn: 0
+  hp_Img: {fileID: 0}
+  myType: 0
 --- !u!95 &1486663169
 Animator:
   serializedVersion: 4
@@ -94046,7 +94054,6 @@ GameObject:
   - component: {fileID: 4530065839066624698}
   - component: {fileID: 4530065839066624697}
   - component: {fileID: 4530065839066624700}
-  - component: {fileID: 4530065839066624701}
   - component: {fileID: 4530065839066624702}
   m_Layer: 0
   m_Name: Player
@@ -94150,18 +94157,6 @@ MonoBehaviour:
   offHandWeapon: {fileID: 1215017575}
   myWeapon: {fileID: 1458905260}
   NPC: {fileID: 0}
---- !u!114 &4530065839066624701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4530065839066624696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fca67c5eb92bc49adae7396729181b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4530065839066624702
 MonoBehaviour:
   m_ObjectHideFlags: 0

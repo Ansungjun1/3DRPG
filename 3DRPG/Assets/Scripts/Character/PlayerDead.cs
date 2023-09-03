@@ -8,12 +8,14 @@ public class PlayerDead : MonoBehaviour
     private int max_Hp => currnet_Hp;
 
     public RectTransform hp_Img;
+    public Animator hip_Ani;
     private float hpMaxScale => hp_Img.localScale.x;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "EnemySword")
         {
             GetComponent<Animator>().CrossFade("TH_Hit_Forward_01", 0.0f);
+            hip_Ani.SetTrigger("hit");
             collision.collider.GetComponent<Sword>().SwordCollider(false);
             GetComponent<StraightSwordControllerDemoScript>().myWeapon.GetComponent<Sword>().SwordCollider(false);
             if (currnet_Hp > 1)
