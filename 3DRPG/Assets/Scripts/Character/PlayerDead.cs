@@ -9,7 +9,11 @@ public class PlayerDead : MonoBehaviour
 
     public RectTransform hp_Img;
     public Animator hip_Ani;
+    public Animator dead_Ani;
     private float hpMaxScale => hp_Img.localScale.x;
+
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "EnemySword")
@@ -27,7 +31,9 @@ public class PlayerDead : MonoBehaviour
             {
                 hp_Img.localScale = new Vector3(hp_Img.localScale.x - hpMaxScale / max_Hp, hp_Img.localScale.y, hp_Img.localScale.z);
                 currnet_Hp--;
-                Destroy(this.gameObject, 0.1f);
+                dead_Ani.SetTrigger("dead");
+                this.gameObject.SetActive(false);
+                //Destroy(this.gameObject, 0.1f);
             }
         }
     }
